@@ -26,7 +26,7 @@ class Chain:
             if obj is None:
                 obj = self
 
-            if hasattr(obj, name) and not isinstance(obj, Chain):
+            if not isinstance(obj, Chain):
                 if method is not None:
                     output = method(obj, *args, **kwargs)
                 else:
