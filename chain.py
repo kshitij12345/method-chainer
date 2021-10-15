@@ -45,7 +45,11 @@ class Chain:
 
     def __getattr__(self, name: str):
         def fn(*args, **kwargs):
-            self.call_chain.append((None, name, None, args, kwargs))
+            obj = None
+            if self.obj is not None:
+                obj = self.obj
+            self.call_chain.append((None, name, obj, args, kwargs))
+            self.obj = None
             return self
         return fn
     
@@ -54,3 +58,8 @@ class Chain:
     
     def __exit__(self, type, value, traceback):
         self.lazy_eval = False
+
+    def lazy_obj(self, obj):
+        # Return self
+        self.obj = obj
+        return self
