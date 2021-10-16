@@ -34,3 +34,4 @@ jobs:
     - name: Test
       run: |
         python example.py
+        python numpy_ndarray_example.py

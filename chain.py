@@ -6,7 +6,8 @@ class Chain:
     def lazy(self, method):
         def fn(obj, *args, **kwargs):
             if self.lazy_eval:
-                self.call_chain.append((method, method.__name__, obj, args, kwargs))
+                args = (method, method.__name__, obj, args, kwargs)
+                self.call_chain.append(args)
                 return self
 
             return method(obj, *args, **kwargs)
@@ -35,10 +36,10 @@ class Chain:
                 # Bad Case we probably got an instance of Chain!
                 # We can't evaluate that
                 raise RuntimeError("ERROR :(")
-            
+
             # Update object for next iteration
             obj = output
-        
+
         org_self.call_chain = []
         org_self.lazy_eval = True
         return output
@@ -52,10 +53,10 @@ class Chain:
             self.obj = None
             return self
         return fn
-    
+
     def __enter__(self):
         self.lazy_eval = True
-    
+
     def __exit__(self, type, value, traceback):
         self.lazy_eval = False
 
