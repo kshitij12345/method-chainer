@@ -47,5 +47,3 @@ assert chainer.execute() == 28
 # Eager evaluation as usual.
 chainer.lazy_eval = False
 assert 28 == ObjectA("", 25).foo("").bar(27).bar(26)
-
-assert False, "ERROR"
