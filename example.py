@@ -2,10 +2,12 @@ from chain import Chain
 
 chainer = Chain()
 
+
 class ObjectB:
     @chainer.lazy
     def bar(self, x):
         return ObjectA("", 26)
+
 
 class ObjectA:
     def __init__(self, x, y):
@@ -23,13 +25,15 @@ class ObjectA:
         self.y = 10
         return y + 2
 
+
 def return_handle():
     # Enable tracking of calls
     with chainer:
         a = ObjectA("Random Name", 25).foo(42)
         a = a.bar(25).bar(26)
-    
+
     return a
+
 
 # `execute` actually executes the method chain
 # and clears the tracker
