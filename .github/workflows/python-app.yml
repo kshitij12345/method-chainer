@@ -14,10 +14,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    concurrency: 
-      group: ${{ github.head_ref }}
-      cancel-in-progress: true
-
     strategy:
       matrix:
         python: ["3.10.0", "3.9", "3.8", "3.7"]
