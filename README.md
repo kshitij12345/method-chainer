@@ -6,7 +6,7 @@ TODO:
 * Improve Exception
 * Support magic method and those operands
 
-## [Linkasd](#`link`)
+## [Linkasd](#link)
 
 ### [link123](#lin)
 
