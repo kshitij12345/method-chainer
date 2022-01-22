@@ -6,9 +6,9 @@ TODO:
 * Improve Exception
 * Support magic method and those operands
 
-## [Link](#`link`)
+## [Linkasd](#`link`)
 
-### [link](#lin)
+### [link123](#lin)
 
 ### `link`
 
